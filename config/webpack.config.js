@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const outputDirectory = '../dist';
+const outputDirectory = '../static';
 const path = require('path')
 
 module.exports = {

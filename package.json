@@ -4,9 +4,15 @@
   "main": "server/app.ts",
   "license": "MIT",
   "scripts": {
+    "prebuild": "rm -rf dist && rm -rf static",
+    "build:client": "webpack --mode production --config config/webpack.config.js",
+    "build:server": "tsc -p server",
+    "build": "concurrently 'npm run build:client' 'npm run build:server'",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot --config config/webpack.config.js",
     "server": "nodemon",
-    "dev": "concurrently 'npm run server' 'npm run client' "
+    "dev": "concurrently 'npm run server' 'npm run client' ",
+    "predeploy": "npm run build",
+    "deploy": "pm2 start dist/app.js"
   },
   "dependencies": {
     "express": "^4.17.1",
