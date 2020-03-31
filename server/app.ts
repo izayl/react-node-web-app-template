@@ -1,4 +1,5 @@
-const express = require('express')
+import express from 'express'
+
 const app = express()
 
 app.use(express.static('dist'))
@@ -6,7 +7,7 @@ app.use(express.static('dist'))
 app.get('/api', (req, res) => {
   res.json({
     code: 200,
-    data: 'api',
+    data: 'test api',
     msg: null
   })
 })
